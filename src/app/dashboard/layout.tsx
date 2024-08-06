@@ -1,4 +1,5 @@
 import Header from "@/components/Header";
+import SideBar from "@/components/SideBar";
 
 export default function RootLayout({
   children,
@@ -6,7 +7,10 @@ export default function RootLayout({
   return (
     <div>
       <Header />
-      {children}
+      <div className="flex h-[calc(100vh-4rem)]">
+        <SideBar />
+        {children}
+      </div>
     </div>
   );
 }
