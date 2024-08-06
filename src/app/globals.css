@@ -67,3 +67,10 @@
     @apply bg-background text-foreground;
   }
 }
+
+@font-face {
+  font-family: "Fortuna";
+  src: url("/fonts/fortuna.ttf") format("ttf");
+  font-weight: normal;
+  font-style: normal;
+}
