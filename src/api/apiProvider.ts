@@ -26,7 +26,7 @@ http.interceptors.request.use(
 
 http.interceptors.response.use(
   async (response: any) => {
-    if (response.data?.data.token) {
+    if (response.data?.data?.token) {
       localStorage.setItem("token", response?.data.data.token);
     }
 
