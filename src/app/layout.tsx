@@ -1,10 +1,10 @@
 import ClientProvider from "@/api/ClientProvider";
 import ToastProvider from "@/components/ToastProvider";
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import { Inter, Poppins } from "next/font/google";
 import "./globals.css";
 
-const inter = Inter({ subsets: ["latin"] });
+const poppins = Poppins({ subsets: ["latin"], weight: "400" });
 
 export const metadata: Metadata = {
   title: "Karga Karga Kanban",
@@ -19,7 +19,7 @@ export default function RootLayout({
   return (
     <ClientProvider>
       <html lang="en">
-        <body className={inter.className}>
+        <body className={poppins.className}>
           <ToastProvider>{children}</ToastProvider>
         </body>
       </html>
