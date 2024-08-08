@@ -34,7 +34,7 @@ const Column: React.FC<Iprops> = ({
   const [flags, setFlags] = useState();
   const [selectedTask, setSelectedTask] = useState(null);
 
-  const openTaskDetail = (task) => {
+  const openTaskDetail = (task: any) => {
     setSelectedTask(task);
   };
 
