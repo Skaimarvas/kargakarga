@@ -9,7 +9,7 @@ export default function RootLayout({
       <Header />
       <div className="flex h-[calc(100vh-4rem)]">
         <SideBar />
-        {children}
+        <div className="flex-grow overflow-hidden">{children}</div>
       </div>
     </div>
   );
