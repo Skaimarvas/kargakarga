@@ -115,7 +115,11 @@ const SideBar = () => {
       </div>
       <button
         onClick={drawerHandler}
-        className="absolute bg-[#363F72] hover:bg-[#485497] focus:ring-2 focus:ring-[#6678d9] active:bg-[#252b4e] rounded-sm shadow-lg border-white border-[1px] h-10 w-10 p-1 left-12 top-6 transition-all duration-200 ease-in-out flex items-center justify-center"
+        className={`absolute  hover:bg-[#485497] focus:ring-2 focus:ring-[#6678d9] active:bg-[#252b4e] rounded-sm shadow-lg  h-10 w-10 p-1   left-12 top-6 transition-all duration-200 ease-in-out  ${
+          isDrawer
+            ? "left-[350px] bg-[#FFFFFF] border-black border-[1px]"
+            : "left-12 bg-[#363F72] border-white border-[1px]"
+        } flex items-center justify-center`}
         aria-label="Toggle Drawer"
       >
         <Image
