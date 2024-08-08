@@ -68,6 +68,7 @@ const Column: React.FC<Iprops> = ({
               />
             )}
             {(ITEMS &&
+              itemsOrder?.length > 0 &&
               itemsOrder.map((item_id: any, index: any) => {
                 const item = ITEMS[item_id];
                 const bgcolor = item.color;
