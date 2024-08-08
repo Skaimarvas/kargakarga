@@ -19,6 +19,8 @@ import { useMutation } from "@tanstack/react-query";
 import { loginRequest } from "@/api/controller/userController";
 import { toast } from "react-toastify";
 import Image from "next/image";
+import { useEffect, useState } from "react";
+import { useRouter } from "next/navigation";
 
 const formSchema = z.object({
   email: z.string().email(),
@@ -34,6 +36,10 @@ export default function Login() {
     },
   });
 
+  const router = useRouter();
+  const [loading, setLoading] = useState(false);
+  const [token, setToken] = useState<string | null>(null);
+
   const postLogin = useMutation({
     mutationFn: loginRequest,
     onSuccess: () => {
@@ -46,6 +52,25 @@ export default function Login() {
 
     postLogin.mutate(values);
   };
+
+  useEffect(() => {
+    const tokenLS = localStorage.getItem("token");
+    setToken(tokenLS);
+
+    if (token) {
+      router.push("/dashboard/board");
+    } else {
+      setLoading(false);
+    }
+  }, [router]);
+
+  if (loading) {
+    return (
+      <div className="flex justify-center items-center h-screen w-full">
+        <span>Yükleniyor</span>
+      </div>
+    );
+  }
 
   return (
     <div className="flex flex-col justify-center items-center gap-2 w-full h-screen bg-[#F6F5F5]">
